@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRouter from "./controllers/user/user.routes";
+import addressRouter from "./controllers/address/address.routes";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(
 
 //routes
 app.use(userRouter);
+app.use(addressRouter)
 
 app.get("/", (req, res) => {
   return res.status(200).send({

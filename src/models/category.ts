@@ -1,13 +1,18 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Document, Schema } from 'mongoose';
 
-interface ICategory extends Document {
+export interface ICategory extends Document {
   name: string;
   description?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
-const categorySchema: Schema = new Schema({
-  name: { type: String, required: true, unique: true },
-  description: String,
+const CategorySchema: Schema = new Schema({
+  name: { type: String, required: true },
+  description: { type: String },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
 });
 
-export default mongoose.model<ICategory>("Category", categorySchema);
+const Category = mongoose.model<ICategory>('Category', CategorySchema);
+export default Category;
