@@ -6,6 +6,7 @@ interface IReview extends Document {
   rating: number;
   comment?: string;
   createdAt: Date;
+  updatedAt: Date;
 }
 
 const reviewSchema: Schema = new Schema({
@@ -18,6 +19,7 @@ const reviewSchema: Schema = new Schema({
   rating: { type: Number, required: true },
   comment: String,
   createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
 });
 
 export default mongoose.model<IReview>("Review", reviewSchema);

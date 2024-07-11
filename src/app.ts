@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
+import userRouter from "./controllers/user/user.routes";
 
 dotenv.config();
 
@@ -25,6 +26,9 @@ app.use(
     origin: "*",
   })
 );
+
+//routes
+app.use(userRouter);
 
 app.get("/", (req, res) => {
   return res.status(200).send({
