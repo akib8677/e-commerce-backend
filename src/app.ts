@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import userRouter from "./controllers/user/user.routes";
 import addressRouter from "./controllers/address/address.routes";
+import orderRouter from "./controllers/order/order.routes";
 
 dotenv.config();
 
@@ -30,7 +31,8 @@ app.use(
 
 //routes
 app.use(userRouter);
-app.use(addressRouter)
+app.use(addressRouter);
+app.use(orderRouter);
 
 app.get("/", (req, res) => {
   return res.status(200).send({

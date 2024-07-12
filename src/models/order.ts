@@ -11,6 +11,7 @@ interface IOrder extends Document {
   totalAmount: number;
   status: string;
   createdAt: Date;
+  updatedAt?: Date;
   items: IOrderItem[];
 }
 
@@ -19,6 +20,7 @@ const orderSchema: Schema = new Schema({
   totalAmount: { type: Number, required: true },
   status: { type: String, default: "Pending" },
   createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
   items: [
     {
       product: {
@@ -32,4 +34,6 @@ const orderSchema: Schema = new Schema({
   ],
 });
 
-export default mongoose.model<IOrder>("Order", orderSchema);
+
+const Order = mongoose.model<IOrder>("Order", orderSchema);
+export default Order;
