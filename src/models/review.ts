@@ -19,7 +19,8 @@ const reviewSchema: Schema = new Schema({
   rating: { type: Number, required: true },
   comment: String,
   createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+  updatedAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.model<IReview>("Review", reviewSchema);
+const Review = mongoose.model<IReview>("Review", reviewSchema);
+export default Review;

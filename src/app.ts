@@ -6,6 +6,9 @@ import cors from "cors";
 import userRouter from "./controllers/user/user.routes";
 import addressRouter from "./controllers/address/address.routes";
 import orderRouter from "./controllers/order/order.routes";
+import productRouter from "./controllers/product/product.routes";
+import reviewRouter from "./controllers/review/review.routes";
+import categoryRouter from "./controllers/category/category.routes";
 
 dotenv.config();
 
@@ -33,6 +36,9 @@ app.use(
 app.use(userRouter);
 app.use(addressRouter);
 app.use(orderRouter);
+app.use(categoryRouter)
+app.use(productRouter);
+app.use(reviewRouter);
 
 app.get("/", (req, res) => {
   return res.status(200).send({

@@ -7,6 +7,7 @@ interface IProduct extends Document {
   stock: number;
   category: mongoose.Schema.Types.ObjectId;
   createdAt: Date;
+  updatedAt: Date;
 }
 
 const productSchema: Schema = new Schema({
@@ -16,6 +17,7 @@ const productSchema: Schema = new Schema({
   stock: { type: Number, default: 0 },
   category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
   createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
 });
 
 export default mongoose.model<IProduct>("Product", productSchema);
